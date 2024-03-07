@@ -1,4 +1,4 @@
-name: K6 Web Test
+name: Movie Api Study
 on:
   push:
     branches: [ "main" ]
@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  Test:
+  Unity_Test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
