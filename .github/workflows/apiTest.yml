@@ -1,0 +1,30 @@
+name: K6 Web Test
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: write
+
+jobs:
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set Node.js 16.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+
+    - name: Run install
+      uses: borales/actions-yarn@v4
+      with:
+        cmd: install # will run `yarn install` command
+    
+    - name: Test the app
+      uses: borales/actions-yarn@v4
+      with:
+        cmd: yarn test # will run `yarn test` command
